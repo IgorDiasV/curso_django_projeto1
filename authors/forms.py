@@ -39,12 +39,14 @@ class RegisterForm(forms.ModelForm):
 
     password = forms.CharField(
         required=True,
-        validators=[strong_password]
+        validators=[strong_password],
+        label='Password'
     )
 
     password2 = forms.CharField(
         required=True,
-
+        widget=forms.PasswordInput(),
+        label='Password2'
     )
 
     class Meta:
@@ -61,7 +63,6 @@ class RegisterForm(forms.ModelForm):
             'first_name': 'First name',
             'last_name': 'Last name',
             'email': 'E-mail',
-            'password': 'Password',
         }
 
     def clean(self):
